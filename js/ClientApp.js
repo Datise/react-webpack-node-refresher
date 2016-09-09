@@ -1,7 +1,7 @@
 var React = require('react')
 var ReactDOM = require('react-dom')
 var MyTitle = require("./MyTitle")
-
+// THE FUTURE IS NIGH
 var div = React.DOM.div
 var MyTitleFactory = React.createFactory(MyTitle)
 var MyFirstComponent = (
