@@ -15,6 +15,9 @@
     "react-router": "^2.0.0",
     "redux": "^3.3.1"
   },
+  "scripts":{
+    "test" : "standard"
+  },
   "devDependencies": {
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.2",
