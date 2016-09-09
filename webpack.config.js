@@ -9,7 +9,7 @@ module.exports = {
   context: __dirname,
   // entry file, the first file for webpack to start with (main file for the project)
   // Hint: this file will usually/should has no exports
-  entry: './js/ClientApp.jsx',
+  entry: './js/App.jsx',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
@@ -37,6 +37,16 @@ module.exports = {
         // anything test returns true, run it through loader (in this case babel)
         loader: 'babel-loader'
       }
+    ],
+    //same as loaders, get run first. In this case we're going to lint all our jsx
+    // before compiling (except node modules) so its nice and clean before being passed 
+    // to babel
+    preloaders: [
+      {
+        test: /\.jsx?$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      }
     ]
-  }
+  },
 }

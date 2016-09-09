@@ -1,14 +1,16 @@
 const React = require('react')
-const ReactDOM = require('react-dom')
-const MyTitle = require("./MyTitle")
+const ReactDOM = require('react-dom');
 // THE FUTURE IS NIGH
-const div = React.DOM.div
-// going to use MyFirstComponent as a stateless component which means its created just in javascript
+// going to use App as a stateless component which means its created just in javascript
 // and not with react per se, avoiding some bloat from using React.createClass
-var MyFirstComponent = () => {
+const App = () => {
   return (
-    <div>
-     <MyTitle title="Whatevs bruh"/>
+    <div className='app-container'>
+      <div className='home-info'>
+        <h1 className='title'>Svideo!</h1>
+        <input className='search' type='text' placeholder='enter a movie name'/>
+        <button className='browse-all'> Browse All </button>
+      </div>
     </div>
   )
 }
@@ -21,4 +23,4 @@ var MyFirstComponent = () => {
 // personally I like explicit return as I think it communicates better to other developers what
 // the function is trying to do
 // Also worth noting, no other expressions can go in the implicit form
-ReactDOM.render(<MyFirstComponent/>, document.getElementById('app'))
+ReactDOM.render(<App/>, document.getElementById('app'))
