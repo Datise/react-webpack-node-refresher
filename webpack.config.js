@@ -36,6 +36,10 @@ module.exports = {
         test: /\.jsx?$/,
         // anything test returns true, run it through loader (in this case babel)
         loader: 'babel-loader'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ],
     //same as loaders, get run first. In this case we're going to lint all our jsx

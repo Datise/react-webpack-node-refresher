@@ -1,17 +1,21 @@
 const React = require('react')
 const ReactDOM = require('react-dom');
+const Landing = require('./Landing')
+const {Router, Route, hashHistory} = require('react-router')
+// Can be writter as:
+// const ReactRouter = require('react-router')
+// const Router = ReactRouter.Router
+
 // THE FUTURE IS NIGH
-// going to use App as a stateless component which means its created just in javascript
-// and not with react per se, avoiding some bloat from using React.createClass
+// going to use App as a stateless component which means its created but 
+// will not pull in all the bloat of react.create class
 const App = () => {
   return (
-    <div className='app-container'>
-      <div className='home-info'>
-        <h1 className='title'>Svideo!</h1>
-        <input className='search' type='text' placeholder='enter a movie name'/>
-        <button className='browse-all'> Browse All </button>
-      </div>
-    </div>
+    // Router can keep track of history in many ways, hashHistory is the easiest
+    // all routes will be defined in Route
+    <Router history={hashHistory}>
+      <Route path='/' component={Landing}/>
+    </Router>
   )
 }
 // You can take the es6 by borrowing from implicit return, from coffee script, it looks like this
