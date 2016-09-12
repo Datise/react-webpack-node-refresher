@@ -4,6 +4,8 @@ const Landing = require('./Landing')
 const Search = require('./search')
 const Layout = require('./Layout')
 const Details = require('./Details')
+const {store} = require('./Store')
+const Provider = require('react-redux')
 const {shows} = require('../public/data.json')
 
 //index route allows for nested routes with the same path
@@ -37,13 +39,15 @@ const App = React.createClass({
       // Router can keep track of history in many ways, hashHistory is the easiest
       // all routes will be defined in Route
       // /details/:id to identify a single thing
-      <Router history={hashHistory}>
-        <Route path='/' component={Layout}>
-          <IndexRoute component={Landing}/>
-          <Route path='/search' shows={shows} component={Search} />
-          <Route path='/details/:id' component={Details} onEnter={this.assignShow}/>
-        </Route>
-      </Router>
+      <Provider store={store}>
+        <Router history={hashHistory}>
+          <Route path='/' component={Layout}>
+            <IndexRoute component={Landing}/>
+            <Route path='/search' shows={shows} component={Search} />
+            <Route path='/details/:id' component={Details} onEnter={this.assignShow}/>
+          </Route>
+        </Router>
+      </Provider>
     )
   }
 })
