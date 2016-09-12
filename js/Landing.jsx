@@ -1,15 +1,14 @@
 const React = require('react')
+const {Link} = require('react-router')
 // THE FUTURE IS NIGH
 // going to use App as a stateless component which means its created just in javascript
 // and not with react per se, avoiding some bloat from using React.createClass
 const Landing = () => {
   return (
-    <div className='app-container'>
-      <div className='home-info'>
-        <h1 className='title'>Svideo!</h1>
-        <input className='search' type='text' placeholder='enter a movie name'/>
-        <button className='browse-all'> Browse All </button>
-      </div>
+    <div className='home-info'>
+      <h1 className='title'>Svideo!</h1>
+      <input className='search' type='text' placeholder='enter a movie name'/>
+      <Link to='/search' className='browse-all'> Browse All </Link>
     </div>
   )
 }

@@ -1,7 +1,10 @@
 const React = require('react')
 const ReactDOM = require('react-dom');
 const Landing = require('./Landing')
-const {Router, Route, hashHistory} = require('react-router')
+const Search = require('./search')
+const Layout = require('./Layout')
+//index route allows for nested routes with the same path
+const {Router, Route, IndexRoute, hashHistory} = require('react-router')
 // Can be writter as:
 // const ReactRouter = require('react-router')
 // const Router = ReactRouter.Router
@@ -14,7 +17,10 @@ const App = () => {
     // Router can keep track of history in many ways, hashHistory is the easiest
     // all routes will be defined in Route
     <Router history={hashHistory}>
-      <Route path='/' component={Landing}/>
+      <Route path='/' component={Layout}>
+        <IndexRoute component={Landing}/>
+        <Route path='/search' component={Search}/>
+      </Route>
     </Router>
   )
 }
