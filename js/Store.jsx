@@ -28,9 +28,10 @@ const reduceSearchTerm = (state, action) => {
 
 const store = redux.createStore(rootReducer)
 
-const mapStateToProps = (state) => ({searchTerm: state.searchTerm})
-// this gets redux to pass back to react as this.props.searchTerm
-
+const mapStateToProps = (state) => {
+  // this gets redux to pass back to react as this.props.searchTerm
+  return { searchTerm: state.searchTerm }
+}
 const mapDispatchToProps = (dispatch) => {
   return {
     setSearchTerm: (searchTerm) => {
@@ -45,4 +46,5 @@ const connector = reactRedux.connect(mapStateToProps, mapDispatchToProps)
 // this is basically a wrapper to add stuff to components, when components want access to these functions
 // and behaviour you should build connectors for that.
 
-module.exports = {connector, store}
+module.exports = { connector, store}
+

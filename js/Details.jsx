@@ -1,9 +1,10 @@
 const React = require('react')
 const Header = require('./Header')
+
 class Details extends React.Component {
-  render(){
-    const movie = this.props.params || {}
-    const {title, description, poster, year, trailer} = movie
+  render () {
+    const params = this.props.params || {}
+    const { title, description, year, poster, trailer } = params
     return (
       <div className='container'>
         <Header />
@@ -21,8 +22,10 @@ class Details extends React.Component {
     )
   }
 }
-const {object} = React.PropTypes
+const { object } = React.PropTypes
+
 Details.propTypes = {
   params: object.isRequired
 }
+
 module.exports = Details

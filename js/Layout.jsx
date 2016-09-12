@@ -1,12 +1,15 @@
 const React = require('react')
+
 const Layout = (props) => (
   <div className='app-container'>
     {props.children}
   </div>
 )
-const {element} = React.PropTypes
+
+const { element } = React.PropTypes
 
 Layout.propTypes = {
-  children: element
+  children: element.isRequired
 }
+
 module.exports = Layout
