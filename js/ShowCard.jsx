@@ -1,14 +1,14 @@
 const React = require('react')
-
+const {Link} = require('react-router')
 const ShowCard = (props) => (
-  <div className='show-card'>
+  <Link to={`/details/${props.show.imdbID}`} className='show-card'>
    <img src={`public/img/posters/${props.show.poster}`} className='show-card-img'/>
    <div className='show-card-text'>
     <h3 className='show-card-title'>{props.show.tite}</h3>
     <h4 className='show-card-year'>"({props.show.year})"</h4>
     <p className='show-card-description'>{props.show.description}</p>
    </div>
-  </div>
+  </Link>
 )
 const string = React.PropTypes
 ShowCard.propTypes = {
