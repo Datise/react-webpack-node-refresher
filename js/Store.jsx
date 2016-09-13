@@ -25,8 +25,11 @@ const reduceSearchTerm = (state, action) => {
   Object.assign(newState, state, {searchTerm: action.value})
   return newState
 }
-
-const store = redux.createStore(rootReducer)
+//initial state and redux compose are for redux dev tools, should not be shipped
+const store = redux.createStore(rootReducer, initialState, redux.compose(
+  typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? 
+  window.devToolsExtension() : (f) => f
+))
 
 const mapStateToProps = (state) => {
   // this gets redux to pass back to react as this.props.searchTerm
