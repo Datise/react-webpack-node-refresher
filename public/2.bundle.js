@@ -13,7 +13,6 @@ webpackJsonp([2],{
 	var _React$PropTypes = React.PropTypes;
 	var object = _React$PropTypes.object;
 	var string = _React$PropTypes.string;
-	var arrayOf = _React$PropTypes.arrayOf;
 
 	var _require = __webpack_require__(225);
 
@@ -24,7 +23,7 @@ webpackJsonp([2],{
 	  displayName: 'Search',
 
 	  propTypes: {
-	    shows: arrayOf(object),
+	    route: object,
 	    searchTerm: string
 	  },
 	  render: function render() {
@@ -37,7 +36,7 @@ webpackJsonp([2],{
 	      React.createElement(
 	        'div',
 	        { className: 'shows' },
-	        this.props.shows.filter(function (show) {
+	        this.props.route.shows.filter(function (show) {
 	          return (show.title + ' ' + show.description).toUpperCase().indexOf(_this.props.searchTerm.toUpperCase()) >= 0;
 	        }).map(function (show) {
 	          return React.createElement(ShowCard, _extends({}, show, { key: show.imdbID }));
