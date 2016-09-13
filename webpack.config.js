@@ -12,7 +12,9 @@ module.exports = {
   entry: './js/BrowserEntry.jsx',
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    //this is telling webpack where to put all the chunks (if you choose to chunk)
+    publicPath: '/public/'
   },
   resolve: {
     // Extensions say: "If I didn't find this, look for this". It gives webpack an order to
@@ -26,7 +28,7 @@ module.exports = {
     // verbose error messages
     reasons: true,
     // chunks
-    chunks: false
+    chunks: true
   },
   module: {
     // build pipeline stuff, an array because it 'does this, then does that ' etc.
