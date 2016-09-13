@@ -9,7 +9,7 @@ module.exports = {
   context: __dirname,
   // entry file, the first file for webpack to start with (main file for the project)
   // Hint: this file will usually/should has no exports
-  entry: './js/App.jsx',
+  entry: './js/BrowserEntry.jsx',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'

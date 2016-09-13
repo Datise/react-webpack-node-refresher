@@ -1,10 +1,11 @@
 const redux = require('redux')
 //react redux provides some helper functions
 const reactRedux = require('react-redux')
-
+const {shows} = require('../public/data')
 const SET_SEARCH_TERM = 'setSearchTerm'
 const initialState = {
-  searchTerm: ''
+  searchTerm: '',
+  shows
 }
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -33,7 +34,11 @@ const store = redux.createStore(rootReducer, initialState, redux.compose(
 
 const mapStateToProps = (state) => {
   // this gets redux to pass back to react as this.props.searchTerm
-  return { searchTerm: state.searchTerm }
+  // anyway that is connected will get the following passed into its props
+  return { 
+    searchTerm: state.searchTerm,
+    shows: state.shows
+  }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
